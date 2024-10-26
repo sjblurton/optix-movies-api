@@ -139,4 +139,4 @@ apiV1.get("/companies", (_request, response) => {
 
 app.use(app.get("base"), apiV1);
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 8080);

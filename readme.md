@@ -26,6 +26,16 @@ I also understand that consistency is sometimes more important than changing one
 - The database for reviews being an array of integers blocks any expansion and is hard to understand. My suggestion would be `{ rating: number }[]`.
 - Schemas protecting the integrity of the database and providing useful error messaging for debugging.
 
+## Deployed
+
+https://optix-movies-api.onrender.com/
+
+## Docker Image
+
+https://hub.docker.com/r/sjblurton/optix-tech-test-api
+
+`docker pull sjblurton/optix-tech-test-api`
+
 ## Installation
 
 To install the dependencies, run:
