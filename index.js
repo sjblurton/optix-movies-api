@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 app.set("base", "/api/v1");
+app.use(express.json());
 
 const movieCompanyData = [
   { id: "1", name: "True Film Productions" },
@@ -100,7 +101,7 @@ apiV1.put("/movies/:movieId", (request, response) => {
     return;
   }
 
-  const review = request.body.review;
+  const review = request.body?.review;
 
   if (!review) {
     response.status(400);
@@ -115,14 +116,14 @@ apiV1.put("/movies/:movieId", (request, response) => {
   ) {
     response.status(400);
     response.send({
-      message: "Review must be a string less than 100 characters",
+      message: "Review must be a string less than 100 characters and not empty",
     });
     return;
   }
 
   response.status(200);
   response.send({
-    message: `Thank you for your review for movie ${movie.title}!`,
+    message: `Thank you for your review for movie ${movie.title}: ${review}`,
   });
 });
 
@@ -139,4 +140,4 @@ apiV1.get("/companies", (_request, response) => {
 
 app.use(app.get("base"), apiV1);
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 5000);
