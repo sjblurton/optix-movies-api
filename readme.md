@@ -25,6 +25,8 @@ I also understand that consistency is sometimes more important than changing one
 - File Structure - It's important to start with a structure in mind and intent. It should be flexible as the project grows and we learn more about its shape, allowing us to review it.
 - The database for reviews being an array of integers blocks any expansion and is hard to understand. My suggestion would be `{ rating: number }[]`.
 - Schemas protecting the integrity of the database and providing useful error messaging for debugging.
+- Automated tests - Every endpoint should be tested and testable
+- swagger openApi documentation
 
 ## Deployed
 
