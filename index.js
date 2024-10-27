@@ -90,6 +90,20 @@ apiV1.get("/movies", (_request, response) => {
   }
 });
 
+apiV1.get("/movies/:movieId", (request, response) => {
+  response.header({ "access-control-allow-origin": "*" });
+  const movie = getMovieById(request.params.movieId);
+
+  if (!movie) {
+    response.status(404);
+    response.send({ message: "Movie not found" });
+    return;
+  }
+
+  response.status(200);
+  response.send(getMovieWithCompanyById(movie));
+});
+
 apiV1.put("/movies/:movieId", (request, response) => {
   response.header({ "access-control-allow-origin": "*" });
   response.header({ "content-type": "application/json" });
